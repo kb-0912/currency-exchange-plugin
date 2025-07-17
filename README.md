@@ -1,64 +1,94 @@
-<p align="center">
-  <a href="https://www.medusajs.com">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/59018053/229103275-b5e482bb-4601-46e6-8142-244f531cebdb.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/59018053/229103726-e5b529a3-9b3f-4970-8a1f-c6af37f087bf.svg">
-    <img alt="Medusa logo" src="https://user-images.githubusercontent.com/59018053/229103726-e5b529a3-9b3f-4970-8a1f-c6af37f087bf.svg">
-    </picture>
-  </a>
-</p>
-<h1 align="center">
-  Medusa Plugin Starter
-</h1>
 
-<h4 align="center">
-  <a href="https://docs.medusajs.com">Documentation</a> |
-  <a href="https://www.medusajs.com">Website</a>
-</h4>
+# Currency Exchange Plugin for Medusa
 
-<p align="center">
-  Building blocks for digital commerce
-</p>
-<p align="center">
-  <a href="https://github.com/medusajs/medusa/blob/master/CONTRIBUTING.md">
-    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="PRs welcome!" />
-  </a>
-    <a href="https://www.producthunt.com/posts/medusa"><img src="https://img.shields.io/badge/Product%20Hunt-%231%20Product%20of%20the%20Day-%23DA552E" alt="Product Hunt"></a>
-  <a href="https://discord.gg/xpCwq3Kfn8">
-    <img src="https://img.shields.io/badge/chat-on%20discord-7289DA.svg" alt="Discord Chat" />
-  </a>
-  <a href="https://twitter.com/intent/follow?screen_name=medusajs">
-    <img src="https://img.shields.io/twitter/follow/medusajs.svg?label=Follow%20@medusajs" alt="Follow @medusajs" />
-  </a>
-</p>
+**Package:** `@kb0912/currency-exchange-plugin`
 
-## Compatibility
+Automatically sync your product prices to the latest exchange rates, supporting multiple currencies. Choose between automatic live rates (from [fawazahmed0/exchange-api](https://github.com/fawazahmed0/currency-api)) or manual rate settings for each currency. Manage everything directly from Medusa Admin—including instant manual price updates!
 
-This starter is compatible with versions >= 2.4.0 of `@medusajs/medusa`. 
+---
 
-## Getting Started
+## Features
 
-Visit the [Quickstart Guide](https://docs.medusajs.com/learn/installation) to set up a server.
+- **Auto-update product prices** based on the latest currency exchange rates and your base currency.
+- **Enable/disable each currency** directly from the Admin UI.
+- **Switch between "Auto" and "Manual" mode** for each currency.
+- **Edit manual exchange rates** for full control.
+- **Trigger instant price updates**—no need to wait for a cronjob.
+- **Safe:** Disabled currencies will not have their prices changed or deleted.
 
-Visit the [Plugins documentation](https://docs.medusajs.com/learn/fundamentals/plugins) to learn more about plugins and how to create them.
+---
 
-Visit the [Docs](https://docs.medusajs.com/learn/installation#get-started) to learn more about our system requirements.
+## Installation
 
-## What is Medusa
+```bash
+yarn add @kb0912/currency-exchange-plugin
+```
+or
+```bash
+npm install @kb0912/currency-exchange-plugin
+```
 
-Medusa is a set of commerce modules and tools that allow you to build rich, reliable, and performant commerce applications without reinventing core commerce logic. The modules can be customized and used to build advanced ecommerce stores, marketplaces, or any product that needs foundational commerce primitives. All modules are open-source and freely available on npm.
+---
 
-Learn more about [Medusa’s architecture](https://docs.medusajs.com/learn/introduction/architecture) and [commerce modules](https://docs.medusajs.com/learn/fundamentals/modules/commerce-modules) in the Docs.
+## Configuration (in `medusa-config.js` or `.ts`)
 
-## Community & Contributions
+```js
+const plugins = [
+  // ... other plugins
+  {
+    resolve: "@kb0912/currency-exchange-plugin",
+    options: {}
+  }
+]
+```
 
-The community and core team are available in [GitHub Discussions](https://github.com/medusajs/medusa/discussions), where you can ask for support, discuss roadmap, and share ideas.
+> **Note:**  
+> Base currency will be taken from your Store config if not specified.
 
-Join our [Discord server](https://discord.com/invite/medusajs) to meet other community members.
+---
 
-## Other channels
+## Usage in Medusa Admin
 
-- [GitHub Issues](https://github.com/medusajs/medusa/issues)
-- [Twitter](https://twitter.com/medusajs)
-- [LinkedIn](https://www.linkedin.com/company/medusajs)
-- [Medusa Blog](https://medusajs.com/blog/)
+Once installed, a **Currency Exchange Settings** page appears in your Admin sidebar.
+
+### 1. Enable/disable currencies
+
+- Toggle the Enable/Disable switch to control which currencies are updated.
+
+### 2. Switch exchange rate mode
+
+- Toggle between **Auto** (fetches rates from exchange-api) and **Manual** (enter your own rate) for each currency.
+
+### 3. Edit manual rates
+
+- If Manual mode is selected, type your desired rate and click **Save**.
+
+### 4. Instant price update
+
+- Click **Update Prices Now** to immediately update all product prices using the latest rates—no need to wait for scheduled jobs!
+- The plugin will recalculate and update all enabled currency prices based on the latest exchange rates and your base currency.
+
+---
+
+## Exchange Rate Source
+
+- This plugin uses [fawazahmed0/exchange-api](https://github.com/fawazahmed0/currency-api) as the default source for live rates.
+- You can override any rate at any time using Manual mode.
+
+---
+
+## Usage Notes
+
+- **Only enabled currencies** will have their prices updated. Disabled currencies retain their existing prices—nothing is deleted or overwritten.
+- You can combine automatic and manual rate management for maximum flexibility.
+- All updates can be triggered manually in Admin or scheduled using cron.
+
+---
+
+## License
+
+MIT
+
+---
+
+For questions, feature requests, or issues, please [open an issue](https://github.com/kb-0912/currency-exchange-plugin/issues) or contact the maintainer.
