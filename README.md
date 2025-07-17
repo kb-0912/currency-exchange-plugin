@@ -6,6 +6,9 @@
 Automatically sync your product prices to the latest exchange rates, supporting multiple currencies. Choose between automatic live rates (from [fawazahmed0/exchange-api](https://github.com/fawazahmed0/currency-api)) or manual rate settings for each currency. Manage everything directly from Medusa Admin—including instant manual price updates!
 
 ---
+<img width="1505" height="773" alt="Screenshot 2025-07-17 at 16 13 16" src="https://github.com/user-attachments/assets/cc68c6e1-8bd9-4b0f-a212-0a3ce193540a" />
+
+---
 
 ## Features
 
