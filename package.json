@@ -7,7 +7,7 @@
   "files": [
     ".medusa/server"
   ],
- "exports": {
+  "exports": {
     "./package.json": "./package.json",
     "./workflows": "./.medusa/server/src/workflows/index.js",
     "./.medusa/server/src/modules/*": "./.medusa/server/src/modules/*/index.js",
@@ -33,13 +33,13 @@
     "prepublishOnly": "medusa plugin:build"
   },
   "devDependencies": {
-    "@medusajs/admin-sdk": "^2.8.7",
-    "@medusajs/cli": "^2.8.7",
-    "@medusajs/framework": "^2.8.7",
-    "@medusajs/icons": "^2.8.7",
-    "@medusajs/medusa": "^2.8.7",
-    "@medusajs/test-utils": "^2.8.7",
-    "@medusajs/ui": "^4.0.17",
+    "@medusajs/admin-sdk": "^2.10.1",
+    "@medusajs/cli": "^2.10.1",
+    "@medusajs/framework": "^2.10.1",
+    "@medusajs/icons": "^2.10.1",
+    "@medusajs/medusa": "^2.10.1",
+    "@medusajs/test-utils": "^2.10.1",
+    "@medusajs/ui": "^4.0.21",
     "@mikro-orm/cli": "6.4.3",
     "@mikro-orm/core": "6.4.3",
     "@mikro-orm/knex": "6.4.3",
