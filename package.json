@@ -1,6 +1,6 @@
 {
   "name": "@anubus298/currency-exchange-plugin",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "currency auto conversion for Medusa.js, forked, optimized & compatible with medusa v2.10+ ",
   "author": "Anubus298",
   "license": "MIT",
